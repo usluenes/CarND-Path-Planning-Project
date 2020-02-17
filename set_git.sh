@@ -2,7 +2,7 @@
 
 # Make sure you have the latest version of the repo
 echo
-git pull
+git push
 echo
 
 # Ask the user for login details
