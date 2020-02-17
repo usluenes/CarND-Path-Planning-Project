@@ -43,8 +43,7 @@ Two distances are defined in order to change lanes. Left lane change is easier t
 The variable d which is the lateral position in terms of frenet coordinates is taken as input. Based on the lateral position interval, the lanes are defined. (For e.g. left lane: 0 < d <4 meters) Current lane of the vehicle is shown on the terminal as messages.
 
 ##### Lane Change Preparation (Line: 302-326):
-At first, if the ego vehicle is located in defined lane, it checks if there is a car in front of it compared to safe distance intervals. Additionally, other lanes are checked individually based on defined safe distance intervals for right and left lane changes.
-According to the comparison, flags that indicates future behaviours are defined. 
+At first, if the ego vehicle is located in defined lane, it checks if there is a car in front of it compared to safe distance intervals. Additionally, other lanes are checked individually based on defined safe distance intervals for right and left lane changes.According to the comparison, flags that indicates future behaviours are defined. 
 
 ##### Behavior Execution (Line: 328-356):
 When the flag conditions are satisfied, required actions are executed. If the too_close condition is satisfied and left lane change is possible, assign lane to left adjacent lane (except the ego vehicle is in the left lane.). If it is not satisfied, right lane change is executed (except the ego vehicle is in the right lane). If there is no lane change possibilities, and obstacle exists in front of the vehicle, it decelerates.  For acceleration, deceleration, accMax is defined as 0.2 in order not to exceed acceleration and jerk limits. If current lane is free, and there is no lane change possibilities, the ego vehicle accelerates.
@@ -68,7 +67,7 @@ An output can be seen in [Output.png](/home/CarND-Path-Planning-Project/src/Outp
 See [FunOutput.png](/home/CarND-Path-Planning-Project/src/Funfact.png)
 
 
--------------------------------------------------------- 0 --------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------
 
 
 Udacity's original README for the project repo
