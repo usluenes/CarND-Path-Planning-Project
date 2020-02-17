@@ -59,12 +59,12 @@ The car is able to:
 -Overtake speed up and speed down when is necessary
 -Navigate without collision
 
-An output can be seen in [Output.png](/home/CarND-Path-Planning-Project/src/Output.png)
+An output can be seen in [Output.png](https://github.com/usluenes/CarND-Path-Planning-Project/blob/master/src/Output.png)
 
 
 ## FunFact.
 -Changing between manual and automated driving may cause some unexpected outputs such as flying self-driving car.
-See [FunOutput.png](/home/CarND-Path-Planning-Project/src/Funfact.png)
+See [FunOutput.png](https://github.com/usluenes/CarND-Path-Planning-Project/blob/master/src/Funfact.png)
 
 
 --------------------------------------------------------------------------------------------------------------------
