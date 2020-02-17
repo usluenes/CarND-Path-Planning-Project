@@ -1,8 +1,83 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
+
+## Goal of the proejct
+In this project it is aimed to navigate safely on a highway with other vehicles. The main purpose is driving safely without exceeding the speed limit and without any collision. It is desired for car to be driven as close as possible to the 50 MPH speed limit. The ego vehicle can overtake slower vehicles and adjust its speed according to traffic conditions.
+
+## Code Review
+### Defined Variables
+
+["lane"] The car's current lane (0: left lane, 1: middle lane; 2: right lane)
+
+["ref_vel"] The car's reference velocity 
+
+["targetLane "] The lane which is suitable for overtaking
+
+["too_close"] Flag to whether clarify if there is a car in front of the vehicle
+
+["left_lane_change_possible"] Flag to whether clarify if there is a car on the left lane of the current lane
+
+["right_lane_change_possible"] Flag to whether clarify if there is a car on the right lane of the current lane
+
+["safe_distance_1"] Safe distance of changing to right lane
+
+["safe_distance_2"] Safe distance of changing to left lane
+
+["accMax"] Max. acceleration
+
+### Code Explanation
+This project uses the codes which is taken from the Q&A video that is provided by Udacity. Lots of concepts are taken from this code.
+
+#### Lane Change Algorithm: 
+
+##### Initialize Lane & Reference Velocity (Line: 202-205): 
+Current lane and the reference velocity is initialized.
+
+##### State and Safe Distance Definition (Line: 248-264):
+3 states (too_cloose, left_lane_change_possible, right_lane_change_possible) are defined.
+Safe distances are defined to clarify states. By using these information, future behaviours are planned.
+Two distances are defined in order to change lanes. Left lane change is easier to right lane change because the safety distance to change left is 5 meters shorter than other distance. As an approximation, overtaking to left lane is prioritized. 
+
+
+##### Lane Definition (Line: 266-292):
+The variable d which is the lateral position in terms of frenet coordinates is taken as input. Based on the lateral position interval, the lanes are defined. (For e.g. left lane: 0 < d <4 meters) Current lane of the vehicle is shown on the terminal as messages.
+
+##### Lane Change Preparation (Line: 302-326):
+At first, if the ego vehicle is located in defined lane, it checks if there is a car in front of it compared to safe distance intervals. Additionally, other lanes are checked individually based on defined safe distance intervals for right and left lane changes.
+According to the comparison, flags that indicates future behaviours are defined. 
+
+##### Behavior Execution (Line: 328-356):
+When the flag conditions are satisfied, required actions are executed. If the too_close condition is satisfied and left lane change is possible, assign lane to left adjacent lane (except the ego vehicle is in the left lane.). If it is not satisfied, right lane change is executed (except the ego vehicle is in the right lane). If there is no lane change possibilities, and obstacle exists in front of the vehicle, it decelerates.  For acceleration, deceleration, accMax is defined as 0.2 in order not to exceed acceleration and jerk limits. If current lane is free, and there is no lane change possibilities, the ego vehicle accelerates.
+
+##### Trajectory Calculation (Line: 359-478):
+The ideas and concepts are taken from the Q&A video. Trajectories are calculated with the help of splines based on the speed and lane output from the behavior, car coordinates and past path points.
+
+
+## Conclusion
+The car is able to:
+-Drive according to the speed limit.
+-Drive without exceeding jerk and acceleration limits.
+-Overtake speed up and speed down when is necessary
+-Navigate without collision
+
+An output can be seen in [Output.png](/home/CarND-Path-Planning-Project/src/Output.png)
+
+
+## FunFact.
+-Changing between manual and automated driving may cause some unexpected outputs such as flying self-driving car.
+See [FunOutput.png](/home/CarND-Path-Planning-Project/src/Funfact.png)
+
+
+-------------------------------------------------------- 0 --------------------------------------------------------
+
+
+Udacity's original README for the project repo
+
+# CarND-Path-Planning-Project
+Self-Driving Car Engineer Nanodegree Program
    
 ### Simulator.
-You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).  
+You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab] (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).  
 
 To run the simulator on Mac/Linux, first make the binary file executable with the following command:
 ```shell
@@ -142,4 +217,7 @@ still be compilable with cmake and make./
 
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
+
+
+
 
