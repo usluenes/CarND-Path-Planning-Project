@@ -1,7 +1,7 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
 
-## Goal of the proejct
+## Goal of the project
 In this project it is aimed to navigate safely on a highway with other vehicles. The main purpose is driving safely without exceeding the speed limit and without any collision. It is desired for car to be driven as close as possible to the 50 MPH speed limit. The ego vehicle can overtake slower vehicles and adjust its speed according to traffic conditions.
 
 ## Code Review
